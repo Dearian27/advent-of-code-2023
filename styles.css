@@ -1,1 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Martian+Mono&family=Montserrat&family=Source+Code+Pro:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 10px;
+  font-family: 'Source Code Pro';
+  background-color: #0F0F23;
+  color: white;
+}
+.nick {
+  color: white;
+}
+.text {
+  color: #47464E;
+}
+.star {
+  font-size: 18px;
+}
+.silver {
+  text-shadow: 0 0 5px #9999cc;
+  color: #9999cc;
+}
+.golden {
+  text-shadow: 0 0 5px #ffff66;
+  color: #ffff66;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 40px;
+}
+
+.title {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap: 10px;
+}
+.code {
+  border: #47464E 1px solid;
+}
+.output {
+  border: #47464E 1px solid;
+}
