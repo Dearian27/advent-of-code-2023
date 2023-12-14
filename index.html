@@ -8,25 +8,68 @@
 </head>
 <body>
   <header class="header">
-    <span class="nick">Dearian27</span>
-    <span class="text">=></span>
-    <span class="star golden" id="golden-stars">23*</span>
-    <span class="star silver" id="silver-stars">12*</span>
-  </header>
+    <div class="user">
+      <span class="nick">Dearian27</span>
+      <span class="text">=></span>
+      <span class="star golden" id="golden-stars">23*</span>
+      <span class="star silver" id="silver-stars">12*</span>
+    </div>
+    <button class="calendar">
+      <img src="./img/calendar.svg"  alt="">
+    </button>
+    </header>
 
   <div class="title golden">
     --- Day 1: Trebuchet?! ---
   </div>
   <section class="container">
-    <main class="code">
-      <span>Code:</span>
-      
-    </main>
-    <aside class="output">
-      <span>Output:</span>
+    <main class="code-container">
+      <div class="code-title">
+        Code: <button class="btn-start" id="btn-start">Start</button>
+      </div>
+      <div class="code">
+        <pre>
+const inputs = `23krgjlpone
+kfxone67bzb2
+8jjpseven
+236twoknbxlczgd
+...`
+let stringArray = inputs.split('\n');
+const values = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9
+}
 
+// Convert string numbers to numbers 
+stringArray = stringArray.map(el => {
+  let newEl = el;
+  Object.keys(values).map(value => {
+      newEl = newEl.replaceAll(`${value}`, `${values[value]}`);
+    })     
+    return newEl
+})
+let numStrArray = stringArray.map(str => str.replace(/[^0-9]/g, ''));
+numStrArray = numStrArray.map(el => el[0] + el[el.length-1])
+numStrArray = numStrArray.map(str => parseInt(str));
+const answer = numStrArray.reduce((acc, next) => acc + parseInt(next));
+alert('answer:', answer);
+        </pre>
+      </div>
+    </main>
+    <aside class="output-container">
+      <div class="output-title">Output:</div>
+      <span id="output"></span>
     </aside>
   </section>
+
   <script src="./main.js"></script>
+  <script src="./day1.js"></script>
 </body>
 </html>

@@ -5,10 +5,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Source Code Pro';
 }
 body {
   padding: 10px;
-  font-family: 'Source Code Pro';
   background-color: #0F0F23;
   color: white;
 }
@@ -30,13 +30,6 @@ body {
   color: #ffff66;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  height: 40px;
-}
-
 .title {
   padding: 10px;
   display: flex;
@@ -50,9 +43,52 @@ body {
   justify-content: space-between;
   gap: 10px;
 }
-.code {
+.code-container {
+  border: #47464E 1px solid;
+  max-width: 100%;
+  overflow: hidden;
+}
+.output-container {
   border: #47464E 1px solid;
 }
+.code-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
 .output {
-  border: #47464E 1px solid;
+  margin-bottom: 30px;
+}
+.code {
+  overflow: auto;
+}
+.btn-start {
+  padding: 4px 12px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  background-color:rgb(76, 255, 150);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s background-color ease;
+}
+.btn-start:hover {
+  background-color:rgb(0, 195, 81);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 40px;
+  justify-content: space-between;
+}
+
+.calendar {
+  height: 25px;
+  width: 25px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
