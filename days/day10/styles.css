@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#canvas {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.153);
+  border: 1px #ffffff39 solid;
+
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.cell {
+  position: absolute;
+  /* height: 20px;
+  width: 20px; */
+}
+.cell.looped {
+  background-color:white;
+}
+
+.checked {
+  animation: check 2s ease-in-out;
+}
+@keyframes check {
+  0% {
+    filter: grayscale(1);
+  }
+  50% {
+    filter: grayscale(0);
+  }
+  100% {
+    filter: grayscale(1);
+  }
+}
+
+.cell.part7 {
+  transform: rotateZ(90deg);
+}
+.cell.partJ {
+  transform: rotateZ(180deg);
+}
+.cell.partL {
+  transform: rotateZ(-90deg);
+}
+.cell.partF {
+}
+.cell.parthor {
+}
+.cell.partver {
+  transform: rotateZ(90deg);
+}

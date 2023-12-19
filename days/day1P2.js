@@ -14,7 +14,7 @@
 //   const newString = string.slice(0, startIndex) + insertString + string.slice(startIndex + deleteCount);
 //   return newString;
 // };
-// let string = 'eighthree2ndaf1one';
+// let string = 'eighthree2seconendaf1oneighthree';
 // let indexes = [];
 // let secondTry = false;
 // while (indexes && !secondTry) {
@@ -29,9 +29,9 @@
 //   } else {
 //     let minIndexItem = indexes[0];
 //     indexes.map(el => {
-//       console.log(el)
 //       if(el.startIndex < minIndexItem.startIndex) minIndexItem = el
 //     });
+//     console.log(minIndexItem.number);
 //     string = insertNumber(string, minIndexItem.startIndex, minIndexItem.charLength, minIndexItem.number)
 //     indexes = [];
 //   }
