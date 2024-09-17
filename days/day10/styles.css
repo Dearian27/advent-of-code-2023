@@ -15,8 +15,6 @@
 
 .cell {
   position: absolute;
-  /* height: 20px;
-  width: 20px; */
 }
 .cell.looped {
   background-color:white;
@@ -29,11 +27,8 @@
   0% {
     filter: grayscale(1);
   }
-  50% {
-    filter: grayscale(0);
-  }
   100% {
-    filter: grayscale(1);
+    filter: grayscale(0);
   }
 }
 
@@ -52,4 +47,17 @@
 }
 .cell.partver {
   transform: rotateZ(90deg);
+}
+
+.inside {
+  background-color: rgb(175, 255, 109);
+  animation: fadeIn 1s ease-out;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

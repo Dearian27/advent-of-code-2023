@@ -140,6 +140,15 @@ J7LLL7L||F7.L|FJ.7J.7-J-L7.LL7|.LJ7.FJ|||J7L7-L7.LJ7|7.|-||LF7-L77FJ|||7LFJL--7J
 -7.LF7J.J-J--7-LJ|.L77LL-|77F.FL-F-JF|JF7LF.|FLF-7-7|7|-LL|-JLLL|FF77FJ-L|JL|J|.J--J-FL-JJ.|L7.L|7FJL|J||LF-|J.LF-L|JL7F|F7||.F7JFF7FJ7|L--7
 |-7-JJJ7J-LFJLLLF--FJF|-JJF|JLJJ-|-LJJ--LJL|-L--JJL-JF--J.L...LL.|JLF-L.-LF-J-7JJF.F.LLFJ.-J-L-FL|JJLJ.FL--JL-LJ.7-J-LJ-77LL-.FJ.-7-JJ|-|J-J`
 
+// `.............
+// .F-------7.-.
+// .|F-----S|.F.
+// .||.....||.L.
+// .||.....||...
+// .|L-7.F-JL7|.
+// .|..|.|FJ.|L.
+// .L--J.L---J...
+// .............`
 
 const strIntoArray = (string) => {
   let array = string.split('\n');

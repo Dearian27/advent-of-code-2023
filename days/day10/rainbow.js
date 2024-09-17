@@ -1,7 +1,7 @@
 let pixelIndex = 0;
 
 const rainbowCanvas = document.createElement('canvas');
-rainbowCanvas.width = 50000;
+rainbowCanvas.width = 20000;
 const ctx = rainbowCanvas.getContext('2d');
 const gradient = ctx.createLinearGradient(0, 0, rainbowCanvas.width, 0);
 gradient.addColorStop(0, '#b827fc');

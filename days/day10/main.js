@@ -14,7 +14,9 @@ const values = {
 const valids = ['F', 'L', '7', 'J', '|', '-', 'S']
 const ways = {
   // [y, x]
-  'S': [[0, -1], [1, 0]],
+  'S': 
+  // [[0, 1], [1, 0]],
+  [[0, -1], [1, 0]],
 
   'F': [[0, 1], [1, 0]],
   'L': [[-1, 0], [0, 1]],
@@ -70,14 +72,40 @@ inputs.map((row, y) => {
     const {cell: cellHTML, path, value, position} = createCell(cell, x, y);
     canvas.appendChild(cellHTML);
     cells[y].push({cell: cellHTML, path, value, position});
-    pixelIndex = (pixelIndex + 1) % rainbowCanvas.width;
+    // pixelIndex = (pixelIndex + 1) % rainbowCanvas.width;
   })
 })
 
-console.log(cells)
+const findTilesInLoop = () => {
+  let count = 0;
+  inputs.map((row, y) => {
+    let crosses = 0;
+    let corner = null; // example: 'F'
+    row.map((current, x) => {
+      if(loopArray.includes(cells[y][x])) {
+        if(current === '|') {
+          crosses++;
+        } else if(current !== '-') {
+          if(corner) {
+            if((corner === 'F' && current === 'J' ) || (corner === 'L' && current === '7')) {
+              crosses++;
+              corner = null;
+            } else if((corner === 'L' && current === 'J') || (corner === 'F' && current === '7')) {
+              corner = null;    
+            }
+          } else corner = current;
+        }
+      } else if(crosses % 2 === 1) {
+        count++;
+        cells[y][x].cell.classList.add('inside');
+      }
+    })
+  })
+  console.log('Closed tiles: ', count)
+}
 
+const loopArray = [];
 let looped = false;
-let lastWays = [];
 let activeWays = [startPoint];
 let loopLength = 0;
 
@@ -92,31 +120,46 @@ function checkAll() {
     ways[way.value].forEach(adds => {
       const current = cells[way.position.y + adds[0]][way.position.x + adds[1]];
       let isLast = false;
-      lastWays.forEach(last => {
-        if(current === last) isLast = true; 
-      })
+      if(loopArray.includes(current)) isLast = true;
       if(current && !isLast) {
+        loopArray.push(current);
         waysToAdd.push(current);
         finish = false;
-        current.cell.querySelector('path').style.fill = 'red'
+        current.cell.querySelector('path').style.fill = getPixelColor(pixelIndex, 0);
+        current.cell.querySelector('path').classList.add('checked');
       }
     })
+    pixelIndex = (pixelIndex + 1) % rainbowCanvas.width;
   })
-  lastWays = activeWays;
   activeWays = waysToAdd;
   if(finish) {
     looped = true;
+    findTilesInLoop();
   } else loopLength++;
-  console.log(loopLength)
+  // console.log(loopLength)
   if(!looped) {
     // setTimeout(() => {
       checkAll();
-    // }, 2)
+    // }, 10)
   }
 }
-
-// document.onload = () => {
-//   checkAll();
-// }
-
+    
 checkAll();
+
+startPoint.cell.querySelector('path').style.fill = 'red';
+
+const checkConnection = (prev, next) => {
+  let isConnected = false;
+  ways[prev.value].map((way) => {
+    const hmmX = prev.position.x + way[1];
+    const hmmY = prev.position.y + way[0];
+    if(hmmX === next.position.x && hmmY === next.position.y) {
+      isConnected = true;
+    }
+  });
+  return isConnected;
+}
+
+
+
+// console.log(loopArray)
